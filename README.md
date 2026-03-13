@@ -33,3 +33,7 @@ docker run --rm \
 Plik z IOC pojawi się w katalogu `data` na hoście.  
 Przy `OUTPUT_FORMAT=edl` domyślną nazwą będzie `iocs.edl` – płaska lista wartości (jeden IOC na linię), gotowa np. do wczytania jako EDL w NGFW.
 
+### Licencja
+
+MIT License – zobacz plik [LICENSE](LICENSE).
+
