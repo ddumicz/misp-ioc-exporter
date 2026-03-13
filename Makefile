@@ -1,10 +1,18 @@
 IMAGE_NAME ?= misp-ioc-exporter
-DATA_DIR ?= $(PWD)/data
+# Obraz w GHCR – ustaw przed push: make push-ghcr GHCR_IMAGE=ghcr.io/USER/misp-ioc-exporter
+GHCR_IMAGE ?= ghcr.io/owner/misp-ioc-exporter
+IMAGE_TAG ?= latest
 
-.PHONY: build run-json run-edl run-proxy-edl
+.PHONY: build build-ghcr push-ghcr run-json run-edl run-proxy-edl
 
 build:
 	docker build -t $(IMAGE_NAME) .
+
+build-ghcr:
+	docker build -t $(GHCR_IMAGE):$(IMAGE_TAG) .
+
+push-ghcr: build-ghcr
+	docker push $(GHCR_IMAGE):$(IMAGE_TAG)
 
 run-json:
 	docker run --rm \

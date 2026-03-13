@@ -17,6 +17,17 @@
 docker build -t misp-ioc-exporter .
 ```
 
+### Obraz w GitHub Container Registry (GHCR)
+
+Przy pushu na `main`/`master` oraz przy publikacji release’a GitHub Actions buduje obraz i wypycha go do `ghcr.io/<owner>/<repo>`.
+
+Lokalne budowanie i wypychanie do GHCR (wymaga `docker login ghcr.io`):
+
+```bash
+make push-ghcr GHCR_IMAGE=ghcr.io/TWOJ_USER/misp-ioc-exporter
+# opcjonalnie z tagiem: make push-ghcr GHCR_IMAGE=... IMAGE_TAG=v1.0.0
+```
+
 ### Uruchomienie
 
 ```bash
